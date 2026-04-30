@@ -12,18 +12,17 @@ classDiagram
         +logout()
     }
 
-    class Aluno {
-        +string matricula
-        +float mediaGeral
-        +consultarNotas()
-        +verSugestoesIA()
-    }
-
     class Professor {
         +string funcional
         +string departamento
         +lancarNota(aluno, disciplina, valor)
         +registrarFrequencia()
+    }
+ class Aluno {
+        +string matricula
+        +float mediaGeral
+        +consultarNotas()
+        +verSugestoesIA()
     }
 
     class Disciplina {
