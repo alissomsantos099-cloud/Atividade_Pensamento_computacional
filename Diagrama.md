@@ -1,9 +1,6 @@
-# Diagrama de Arquitetura do Sistema (PAI)
-
-Abaixo está a representação visual da estrutura de classes e relacionamentos do sistema, utilizando a sintaxe Mermaid para renderização automática no GitHub.
-
-```mermaid
 classDiagram
+    direction LR
+    
     class Usuario {
         +int id
         +string nome
@@ -38,8 +35,11 @@ classDiagram
         +gerarRecomendacao(aluno)
     }
 
+    %% Relacionamentos de Herança
     Usuario <|-- Aluno : Herança
     Usuario <|-- Professor : Herança
+
+    %% Relacionamentos de Associação e Dependência
     Professor "1" --> "n" Disciplina : Leciona
     Aluno "n" --> "n" Disciplina : Matriculado
     MotorIA ..> Aluno : Processa Dados
