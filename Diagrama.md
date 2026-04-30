@@ -1,6 +1,6 @@
 classDiagram
-    direction LR
-    
+    direction TB
+
     class Usuario {
         +int id
         +string nome
@@ -35,12 +35,10 @@ classDiagram
         +gerarRecomendacao(aluno)
     }
 
-    %% Relacionamentos de Herança
+    %% Relacionamentos
     Usuario <|-- Aluno : Herança
     Usuario <|-- Professor : Herança
-
-    %% Relacionamentos de Associação e Dependência
-    Professor "1" --> "n" Disciplina : Leciona
-    Aluno "n" --> "n" Disciplina : Matriculado
+    Professor "1" -- "n" Disciplina : Leciona
+    Aluno "n" -- "n" Disciplina : Matriculado
     MotorIA ..> Aluno : Processa Dados
     MotorIA ..> Disciplina : Analisa Requisitos
