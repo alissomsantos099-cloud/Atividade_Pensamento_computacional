@@ -1,58 +1,65 @@
-# Projeto – Pensamento Computacional para Sistemas de Larga Escala
-## Plataforma Acadêmica Inteligente
+🎓 Plataforma Acadêmica Inteligente (PAI)
+📌 Visão Geral
 
-### 📝 Descrição
-Este projeto foi desenvolvido como parte da disciplina **Pensamento Computacional** no curso de Análise e Desenvolvimento de Sistemas (UDF), sob orientação da **Profa. Kadidja Valéria**.
+Projeto desenvolvido na disciplina Pensamento Computacional (UDF), com foco na aplicação prática dos pilares computacionais na concepção de sistemas escaláveis.
 
-O objetivo central é aplicar os quatro pilares do pensamento computacional (Decomposição, Abstração, Reconhecimento de Padrões e Algoritmos) na concepção de um sistema acadêmico robusto e escalável.
+A proposta consiste na modelagem de uma plataforma acadêmica moderna, capaz de suportar múltiplos usuários simultâneos e oferecer recomendações personalizadas com base no desempenho do aluno.
 
----
+🎯 Objetivos do Projeto
+Aplicar os quatro pilares do pensamento computacional em um sistema realista
+Relacionar conceitos de engenharia de software com escalabilidade
+Incorporar princípios de segurança clássicos em arquitetura moderna
+Simular um ambiente acadêmico com alto volume de acessos
+Estruturar o desenvolvimento com base em práticas ágeis
+💻 Sistema Proposto
 
-### 🎯 Objetivos
-*   Relacionar Engenharia de Software e Pensamento Computacional.
-*   Implementar princípios de segurança de **Saltzer & Schroeder** em larga escala.
-*   Propor soluções para desafios de escalabilidade (milhares de usuários simultâneos).
-*   Utilizar metodologias ágeis (Scrum) no planejamento.
+Nome: Portal Acadêmico Integrado (PAI)
+Tipo: Aplicação Web modular
+Arquitetura: Preparada para evolução em microserviços
 
----
+Principais funcionalidades:
+Autenticação e controle de acesso
+Gestão de alunos, professores e disciplinas
+Registro de notas e frequência
+Geração de relatórios acadêmicos
+Sistema de recomendação baseado em desempenho
+🧠 Aplicação do Pensamento Computacional
+🔹 Decomposição
 
-### 💻 O Sistema Proposto
-**Nome:** Portal Acadêmico Integrado (PAI)  
-**Descrição:** Uma aplicação web de gestão acadêmica que centraliza a jornada do aluno, desde a matrícula até a formatura, com foco em personalização via IA.
+O sistema foi estruturado em módulos independentes:
 
----
+Autenticação: gerenciamento de sessões e permissões
+Acadêmico: controle de dados educacionais
+Relatórios: análise e visualização de desempenho
+Recomendação: motor lógico para sugestões personalizadas
 
-### 🧩 Pensamento Computacional Aplicado
+Essa divisão reduz acoplamento e facilita escalabilidade.
 
-#### 1. Decomposição
-O sistema foi dividido em microserviços independentes:
-*   **Módulo de Autenticação:** Gestão de tokens e segurança.
-*   **Módulo Acadêmico:** Gestão de disciplinas, notas e histórico.
-*   **Módulo de Relatórios:** Painéis analíticos para coordenação.
-*   **Módulo de Recomendação:** Motor de IA para sugestão de trilhas de estudo.
+🔹 Reconhecimento de Padrões
+Uso de padrões consolidados de autenticação (OAuth 2.0 / JWT)
+Estrutura de interface baseada em sistemas LMS modernos
+Organização modular inspirada em arquiteturas distribuídas
+🔹 Abstração
 
-#### 2. Reconhecimento de Padrões
-*   **Autenticação:** Padrão OAuth 2.0/JWT (comum em sistemas bancários).
-*   **Interface:** Componentização de UI inspirada em padrões de LMS (Learning Management Systems) como o Blackboard.
+Modelagem do sistema por meio de diagramas UML, priorizando entidades, relações e fluxos principais, sem dependência de tecnologia específica.
 
-#### 3. Abstração
-Utilização de diagramas de classes e sequências para representar o fluxo de dados entre o aluno e o portal, omitindo detalhes técnicos de infraestrutura para focar na lógica de negócio.
+🔹 Algoritmos
 
-#### 4. Algoritmos
-Implementação de algoritmos para:
-*   Cálculo automático de médias ponderadas.
-*   Triagem de conteúdos sugeridos com base em lacunas de desempenho.
+Implementação de lógica para:
 
----
+Cálculo de médias acadêmicas
+Identificação de baixo desempenho
+Geração de recomendações de estudo
+Classificação de alunos por desempenho
+🛡️ Segurança e Escalabilidade
+🔐 Segurança
 
-### 🛡️ Desafios e Segurança
-*   **Escalabilidade:** Estratégia de Cache em camadas para suportar picos de acesso no fim de semestre.
-*   **Princípios de Saltzer & Schroeder:** 
-    *   *Least Privilege:* Alunos não possuem acesso a registros financeiros de outros usuários.
-    *   *Fail-Safe Defaults:* Por padrão, nenhum usuário tem acesso a módulos sensíveis sem autenticação explícita.
+Baseado nos princípios de Saltzer & Schroeder:
 
----
-```mermaid
+Least Privilege: permissões mínimas por perfil
+Fail-Safe Defaults: acesso negado por padrão
+Separação de responsabilidades: isolamento entre módulos
+⚡ Escalabilidade
 classDiagram
     class Usuario {
         +int id
@@ -88,24 +95,48 @@ classDiagram
         +gerarRecomendacao(aluno)
     }
 
-    Usuario <|-- Aluno : Herança
-    Usuario <|-- Professor : Herança
-    Professor "1" --> "n" Disciplina : Leciona
-    Aluno "n" --> "n" Disciplina : Matriculado
-    MotorIA ..> Aluno : Processa Dados
-    MotorIA ..> Disciplina : Analisa Requisitos
-```
----
-### 📂 Estrutura do Repositório
-*   `README.md`: Documentação principal.
-*   `Design.md`: Detalhamento dos diagramas e abstrações.
-*   `Desafios.md`: Lista de desafios técnicos e soluções.
-*   `src/`: Protótipo inicial.
+    Usuario <|-- Aluno
+    Usuario <|-- Professor
+    Professor --> Disciplina
+    Aluno --> Disciplina
+    MotorIA ..> Aluno
+    MotorIA ..> Disciplina
+Arquitetura modular com potencial para microserviços
+Estratégias de cache para redução de carga
+Possibilidade de balanceamento de carga em cenários reais
+Preparado para crescimento horizontal
+🧩 Modelagem do Sistema
+📂 Estrutura do Projeto
+/
+├── README.md
+├── Design.md
+├── Desafios.md
+└── src/
+🚀 Execução do Protótipo
+Configure um ambiente com PHP (ex: XAMPP)
+Clone o repositório
+Insira o projeto no diretório do servidor
+Acesse via navegador:
+http://localhost/
+📊 Diferenciais do Projeto
+Aplicação direta de pensamento computacional em um sistema completo
+Estrutura pronta para evolução em arquitetura distribuída
+Integração entre lógica acadêmica e recomendação automatizada
+Foco simultâneo em escalabilidade e segurança
+📅 Informações
+Autor: Alisson D. S. Ferreira
+Disciplina: Pensamento Computacional
+Instituição: UDF
+Data: 23/04/2026
+⚠️ Ajuste importante (visão crítica)
 
----
+Seu projeto está bem pensado, mas ainda está no nível de simulação conceitual.
 
-### 📅 Entrega
-**Autor:** ALisson D S Ferreira
-**Data:** 23/04/2026  
-**Commit:** "Entrega Projeto Aula – Pensamento Computacional para Sistemas de Larga Escala"  
+Para virar algo realmente forte (nível portfólio ou mercado), o próximo passo é:
 
+Persistência de dados (MySQL/PostgreSQL)
+Autenticação real (login funcional)
+API estruturada
+Deploy (mesmo que simples)
+
+Sem isso, ele demonstra conhecimento — mas não prova execução em ambiente real.
