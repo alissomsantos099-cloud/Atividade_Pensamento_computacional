@@ -105,6 +105,7 @@ classDiagram
 ---
 
 ### 📅 Entrega
+**Autor:** ALisson D S Ferreira
 **Data:** 23/04/2026  
 **Commit:** "Entrega Projeto Aula – Pensamento Computacional para Sistemas de Larga Escala"  
-**Autor:** Daniel Lopes Aguiar
+
